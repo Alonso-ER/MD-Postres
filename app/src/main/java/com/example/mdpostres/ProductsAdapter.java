@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.mdpostres.databinding.ItemProductBinding;
 import com.google.android.material.card.MaterialCardView;
 
 import java.util.List;
@@ -20,7 +19,6 @@ import java.util.List;
 public class ProductsAdapter
         extends RecyclerView.Adapter<ProductsAdapter.ViewHolder> {
 
-    ItemProductBinding binding;
 
     private final List<Product> products;
     private final OnClickListener listener;

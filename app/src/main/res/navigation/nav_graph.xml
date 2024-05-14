@@ -10,5 +10,25 @@
         android:id="@+id/productsFragment"
         android:name="com.example.mdpostres.ProductsFragment"
         android:label="@string/products_title"
-        tools:layout="@layout/fragment_products" />
+        tools:layout="@layout/fragment_products" >
+        <action
+            android:id="@+id/action_products_to_car"
+            app:destination="@id/carFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/carFragment"
+        android:name="com.example.mdpostres.CarFragment"
+        android:label="fragment_car"
+        tools:layout="@layout/fragment_car" >
+        <action
+            android:id="@+id/action_car_to_products"
+            app:destination="@id/productsFragment" />
+        <argument
+            android:name="products"
+            app:argType="string[]"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
 </navigation>
