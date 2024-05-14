@@ -6,22 +6,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.example.mdpostres.databinding.FragmentCarBinding;
+import com.example.mdpostres.databinding.FragmentConfirmBinding;
+import com.google.android.material.transition.MaterialFadeThrough;
 import com.google.android.material.transition.MaterialSharedAxis;
 
+public class ConfirmFragment extends Fragment {
 
-public class CarFragment extends Fragment {
-
-    FragmentCarBinding binding;
+    FragmentConfirmBinding binding;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,15 +27,15 @@ public class CarFragment extends Fragment {
         setEnterTransition(new MaterialSharedAxis(MaterialSharedAxis.X, true));
         setReturnTransition(new MaterialSharedAxis(MaterialSharedAxis.X, false));
 
-        setReenterTransition(new MaterialSharedAxis(MaterialSharedAxis.X, false));
-        setExitTransition(new MaterialSharedAxis(MaterialSharedAxis.X, true));
+        setExitTransition(new MaterialFadeThrough());
+
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        binding = FragmentCarBinding.inflate(inflater, container, false);
+        binding = FragmentConfirmBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
@@ -46,20 +43,10 @@ public class CarFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        CarAdapter adapter = new CarAdapter(CarFragmentArgs.fromBundle(getArguments()).getProducts());
-        RecyclerView rvCar = binding.rvCar;
-        rvCar.setLayoutManager(new LinearLayoutManager(getContext()));
-        rvCar.setAdapter(adapter);
-
-        TextView tvSum = binding.tvSum;
-        tvSum.setText(getString(R.string.car_sum, (float)adapter.getItemCount()));
-
-        binding.btnBack.setOnClickListener(v -> NavHostFragment
-                .findNavController(this).navigate(R.id.action_car_to_products));
-
-        binding.btnPay.setOnClickListener(v -> NavHostFragment
-                .findNavController(this).navigate(R.id.action_car_to_confirm));
-
+        binding.btnDone.setOnClickListener(v -> {
+            NavHostFragment.findNavController(this)
+                    .navigate(R.id.action_confirm_to_products);
+        });
         setHasOptionsMenu(true);
     }
 

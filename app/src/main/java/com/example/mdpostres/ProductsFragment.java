@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mdpostres.databinding.FragmentProductsBinding;
+import com.google.android.material.transition.MaterialFadeThrough;
+import com.google.android.material.transition.MaterialSharedAxis;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,16 @@ public class ProductsFragment extends Fragment implements OnClickListener {
     FragmentProductsBinding binding;
 
     private final List<Product> selectedProducts = new ArrayList<>();
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setEnterTransition(new MaterialFadeThrough());
+
+        setReenterTransition(new MaterialSharedAxis(MaterialSharedAxis.X, false));
+        setExitTransition(new MaterialSharedAxis(MaterialSharedAxis.X, true));
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,

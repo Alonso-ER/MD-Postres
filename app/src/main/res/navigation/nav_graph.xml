@@ -9,26 +9,51 @@
     <fragment
         android:id="@+id/productsFragment"
         android:name="com.example.mdpostres.ProductsFragment"
-        android:label="@string/products_title"
-        tools:layout="@layout/fragment_products" >
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_products">
         <action
             android:id="@+id/action_products_to_car"
             app:destination="@id/carFragment" />
+        <!--<action
+            android:id="@+id/action_products_to_car"
+            app:destination="@id/carFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out" /> -->
     </fragment>
-
 
     <fragment
         android:id="@+id/carFragment"
         android:name="com.example.mdpostres.CarFragment"
-        android:label="fragment_car"
+        android:label="@string/car_title"
         tools:layout="@layout/fragment_car" >
         <action
             android:id="@+id/action_car_to_products"
             app:destination="@id/productsFragment" />
+        <!--<action
+            android:id="@+id/action_car_to_products"
+            app:destination="@id/productsFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" /> -->
         <argument
             android:name="products"
             app:argType="string[]"
             app:nullable="true"
             android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_car_to_confirm"
+            app:destination="@id/confirmFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/confirmFragment"
+        android:name="com.example.mdpostres.ConfirmFragment"
+        android:label="@string/confirm_title"
+        tools:layout="@layout/fragment_confirm" >
+        <action
+            android:id="@+id/action_confirm_to_products"
+            app:destination="@id/productsFragment" />
+    </fragment>
+
+    <action android:id="@+id/action_global_confirm"
+        app:destination="@id/confirmFragment" />
 </navigation>

@@ -2,12 +2,28 @@
     <string name="app_name">MD Postres</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Products -->
     <string name="products_title">Productos</string>
-    <string name="item_product_photo_desc">Imagen del Producto</string>
-    <string name="item_product_name_hint">Nombre del Producto</string>
-    <string name="products_add_car">Añadir</string>
-    <string name="car_price">$1.00</string>
     <string name="products_check_list">Pedido:</string>
+    <string name="products_add_car">Añadir</string>
+
+    <!-- Car -->
+    <string name="car_price">$1.00</string>
     <string name="car_pay">Pagar</string>
     <string name="car_back">Atrás</string>
+    <string name="car_sum">Total = $%1$.2f</string>
+    <string name="car_title">Carrito de Compras</string>
+
+    <!-- Confirmation -->
+    <string name="confirm_message">Sus alimentos llegaran pronto, gracias por su compra.</string>
+    <string name="confirmation_status">Pago exitoso.</string>
+    <string name="confirm_done">Listo</string>
+    <string name="confirm_title">Pago</string>
+    <string name="confirm_title_alt">Pago(by id)</string>
+
+    <!-- Description and Hints -->
+    <string name="item_product_photo_desc">Imagen del Producto</string>
+    <string name="item_product_name_hint">Nombre del Producto</string>
+    <string name="img_view_check_description">Check</string>
 </resources>
